@@ -1,0 +1,2 @@
+# js-closure
+Closure examples
