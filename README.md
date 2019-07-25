@@ -1,2 +1,5 @@
 # js-closure
-Closure examples
+Closure examples & experiments
+
+## Run
+node index.js

@@ -58,12 +58,13 @@ let test4 = (function() {
   }
 })();
 
-// With ES6 arrow functions
+// Function factory with ES6 arrow functions
 let test5 = (() => {
   // Private variables and function/method
   let _position = 0
   function changeBy(amount) { return _position += amount }
-  // Public methods
+
+  // Public methods & data
   return {
     up: () =>   { 
       console.log('up._position:',_position)
@@ -73,7 +74,8 @@ let test5 = (() => {
       console.log('down_position:',_position)
       return changeBy(-1) 
     },
-    position: () => { return _position }
+    position: () => { return _position },
+    data: "some public data"
   }
 })();
 
@@ -111,7 +113,6 @@ function main(){
  console.log(test5.down())
  console.log(test5.down())
  console.log(test5)
-
  /*
   display public methods:
     { up: [Function: up],
@@ -119,5 +120,8 @@ function main(){
       position: [Function: position] 
     }
  */
+console.log(test5.data)
+console.log(test5.data = "change me")
+console.log(test5._position)  // undefined !
 }
 main()
